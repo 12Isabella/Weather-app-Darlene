@@ -28,6 +28,10 @@ h4 {
 }
 .wholeWeek {
   padding-top: 20px;
+  padding-bottom: 30px;
+}
+.codeLink {
+  text-decoration: none;
 }
 .wholeWeekDay {
   font-size: 17px;
