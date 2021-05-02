@@ -2,7 +2,7 @@
 function actualDate () {
 let now = new Date ();
 let dayNumber = now.getDay ();
-let days = ["Sunday", "Monday", "Tuesday", "Wedenesday", "Thursday", "Friday", "Saturday"]
+let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 let day = days[dayNumber];
 
 let date = now.getDate ();
