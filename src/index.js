@@ -1,8 +1,19 @@
 let apiKey = "2ac6514991aa99cb91e321c9b9758eb6";
-let apiUrl ="https://api.openweathermap.org/data/2.5/weather?q=Lisbon&units=metric";
+let city = "Oslo";
+let apiUrl =`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`;
 
 function showTemp (response){
     console.log(response.data);
+    
+     
+    let inputPlace = document.querySelector("#place");
+    let tempNow = document.querySelector("#tempNow");
+    let temperature = Math.round(response.data.main.temp);
+    let description = response.data.weather[0].description;
+tempNow.innerHTML= `${temperature} C, ${description}`;
+        inputPlace.innerHTML = `${
+          response.data.name
+        }`;
 }
 axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemp);
 
@@ -38,6 +49,7 @@ console.log("running function");
 
 let inputPlace = document.querySelector ("#place");
 let inputFormField = document.querySelector ("#input-form-city");
+
 
 let valuePlace = inputFormField.value;
 inputPlace.innerHTML = valuePlace;
