@@ -1,3 +1,16 @@
+let apiKey = "2ac6514991aa99cb91e321c9b9758eb6";
+let apiUrl ="https://api.openweathermap.org/data/2.5/weather?q=Lisbon&units=metric";
+
+function showTemp (response){
+    console.log(response.data);
+}
+axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemp);
+
+
+
+
+
+
 
 function actualDate () {
 let now = new Date ();
