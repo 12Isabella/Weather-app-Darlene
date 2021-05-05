@@ -20,7 +20,7 @@ console.log("running function");
 let inputPlace = document.querySelector ("#place");
 let inputFormField = document.querySelector ("#input-form-city");
 
-let valuePlace = inputFormField.value;
+let valuePlace = inputFormField.value.trim();
 
 inputPlace.innerHTML = valuePlace;
 let city= valuePlace;
