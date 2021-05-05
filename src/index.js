@@ -44,6 +44,10 @@ function showTemp (response){
     let description = response.data.weather[0].description;
     tempNow.innerHTML= `Right now: ${temperature} °C, ${description}`;
     inputPlace.innerHTML = `${response.data.name}`;
+
+    let feelsLikeTemp = document.querySelector("#feelsLike");
+    let feelTemp = Math.round(response.data.main.feels_like);
+    feelsLikeTemp.innerHTML = `Feels like: ${feelTemp} °C`;
 }
 
 let dayDate = document.querySelector ("#day-date");
