@@ -50,6 +50,19 @@ function showTemp (response){
     feelsLikeTemp.innerHTML = `Feels like: ${feelTemp} °C`;
 }
 
+
+  
+  function retrievePosition(position) {
+  navigator.geolocation.getCurrentPosition(retrievePosition);
+  let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+  let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+  axios.get(url).then(showTemp);
+  
+}
+
+
 let dayDate = document.querySelector ("#day-date");
 dayDate.innerHTML = `on ${actualDate()}`;
 
@@ -60,6 +73,9 @@ let apiKey = "2ac6514991aa99cb91e321c9b9758eb6";
 let city = "Oslo";
 let apiUrl =`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`;
 axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemp);
+
+let weatherButton = document.querySelector("#weatherNowButton");
+weatherButton.addEventListener("click", retrievePosition);
 
 
 
