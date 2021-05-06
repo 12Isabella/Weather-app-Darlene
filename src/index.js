@@ -52,8 +52,10 @@ function showTemp (response){
 
 
   
-  function retrievePosition(position) {
-  navigator.geolocation.getCurrentPosition(retrievePosition);
+  function retrievePosition() {
+  navigator.geolocation.getCurrentPosition(showWeatherForPosition);}
+  
+  function showWeatherForPosition(position) {
   let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
