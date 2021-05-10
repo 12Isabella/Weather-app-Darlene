@@ -59,6 +59,7 @@ function showTemp (response){
     let humidity = response.data.main.humidity;
     let windspeedElement = document.querySelector("#wind");
     let windspeed = response.data.wind.speed;
+    let iconElement = document.querySelector("#icon");
     
     descriptionWeather.innerHTML = `${description}`;
     humidityElement.innerHTML = `${humidity}`;
@@ -70,6 +71,12 @@ function showTemp (response){
     feelsLikeTemp.innerHTML = `Feels like: ${(feelTemp*(9/5)+32)} °F`;}
     
     inputPlaceElement.innerHTML = `${response.data.name}`;
+
+    iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
     
 }
 
