@@ -25,6 +25,10 @@ let valuePlace = inputFormField.value.trim();
 inputPlace.innerHTML = valuePlace;
 city = valuePlace;
 
+updateWeather ();}
+
+function updateWeather () {
+
 apiUrl =`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`;
 
 axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemp);
@@ -32,8 +36,14 @@ axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemp);
 
 function updateUnitC () {
   tempUnit = "C";
-  handleSubmit ();
+  updateWeather ();
 }
+
+function updateUnitF() {
+  tempUnit = "F";
+  updateWeather();
+}
+
 
 function showTemp (response){
     console.log(response.data);
@@ -86,7 +96,7 @@ let tempC = document.querySelector("#tempC");
 tempC.addEventListener ("click", updateUnitC);
 
 let tempF = document.querySelector("#tempF");
-tempF.addEventListener ("click", showTemp );
+tempF.addEventListener ("click", updateUnitF );
 
 let weatherButton = document.querySelector("#weatherNowButton");
 weatherButton.addEventListener("click", retrievePosition);
