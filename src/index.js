@@ -48,22 +48,28 @@ function updateUnitF() {
 function showTemp (response){
     console.log(response.data);
     
-    let inputPlace = document.querySelector("#place");
-    let tempNow = document.querySelector("#tempNow");
+    let inputPlaceElement = document.querySelector("#place");
+    let tempNowElement = document.querySelector("#tempNow");
     let descriptionWeather = document.querySelector("#descriptionWeather")
     let temperature = Math.round(response.data.main.temp);
     let description = response.data.weather[0].description;
     let feelsLikeTemp = document.querySelector("#feelsLike");
     let feelTemp = Math.round(response.data.main.feels_like);
+    let humidityElement = document.querySelector("#humidity");
+    let humidity = response.data.main.humidity;
+    let windspeedElement = document.querySelector("#wind");
+    let windspeed = response.data.wind.speed;
     
     descriptionWeather.innerHTML = `${description}`;
-    if (tempUnit === "C"){    tempNow.innerHTML= `${temperature}`;
+    humidityElement.innerHTML = `${humidity}`;
+    windspeedElement.innerHTML = `${windspeed}`;
+    if (tempUnit === "C"){    tempNowElement.innerHTML= `${temperature}`;
     feelsLikeTemp.innerHTML = `Feels like: ${feelTemp} °C`;}
     if (tempUnit === "F"){
-    tempNow.innerHTML= `${(temperature*(9/5)+32)}`;
+    tempNowElement.innerHTML= `${(temperature*(9/5)+32)}`;
     feelsLikeTemp.innerHTML = `Feels like: ${(feelTemp*(9/5)+32)} °F`;}
     
-    inputPlace.innerHTML = `${response.data.name}`;
+    inputPlaceElement.innerHTML = `${response.data.name}`;
     
 }
 
