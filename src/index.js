@@ -48,6 +48,7 @@ function updateUnitF() {
 function showTemp (response){
     console.log(response.data);
     
+    let inputFormField = document.querySelector ("#input-form-city"); 
     let inputPlaceElement = document.querySelector("#place");
     let tempNowElement = document.querySelector("#tempNow");
     let descriptionWeather = document.querySelector("#descriptionWeather")
@@ -61,15 +62,19 @@ function showTemp (response){
     let windspeed = response.data.wind.speed;
     let iconElement = document.querySelector("#icon");
     
+    //update the temperatures in all the elements
     descriptionWeather.innerHTML = `${description}`;
     humidityElement.innerHTML = `${humidity}`;
     windspeedElement.innerHTML = `${windspeed}`;
+
+    //set temperatures in C or F based on tempUnit
     if (tempUnit === "C"){    tempNowElement.innerHTML= `${temperature}`;
     feelsLikeTemp.innerHTML = `Feels like: ${feelTemp} °C`;}
     if (tempUnit === "F"){
-    tempNowElement.innerHTML= `${(temperature*(9/5)+32)}`;
-    feelsLikeTemp.innerHTML = `Feels like: ${(feelTemp*(9/5)+32)} °F`;}
+    tempNowElement.innerHTML= `${(Math.round(temperature*(9/5)+32))}`;
+    feelsLikeTemp.innerHTML = `Feels like: ${(Math.round(feelTemp*(9/5)+32))} °F`;}
     
+    //Update the city that is shown
     inputPlaceElement.innerHTML = `${response.data.name}`;
 
     iconElement.setAttribute(
@@ -77,7 +82,8 @@ function showTemp (response){
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
-    
+
+inputFormField.value =response.data.name;
 }
 
 function retrievePosition() {
