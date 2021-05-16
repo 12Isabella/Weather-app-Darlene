@@ -47,7 +47,7 @@ function updateUnitF() {
 
 function showTemp (response){
     console.log(response.data);
-    
+
     let inputFormField = document.querySelector ("#input-form-city"); 
     let inputPlaceElement = document.querySelector("#place");
     let tempNowElement = document.querySelector("#tempNow");
@@ -84,6 +84,8 @@ function showTemp (response){
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
 inputFormField.value =response.data.name;
+
+showForecast ();
 }
 
 function retrievePosition() {
@@ -96,6 +98,30 @@ function showWeatherForPosition(position) {
   let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
   axios.get(url).then(showTemp);
   }
+function showForecast () {
+  let forecastElement = document.querySelector ("#forecast");
+  
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +`
+            <div class="col-2 wholeWeekDay">
+              <div>${day},</div>
+              <div>05.05.2021</div>
+              <div>🌤</div>
+              <div class="weather-forecast-temperatures">
+                <span class="weather-forecast-temperature-max"> 18° </span>
+                <span class="weather-forecast-temperature-min"> 12° </span>
+              </div>
+            </div>
+          `;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  
+ forecastElement.innerHTML = forecastHTML;
+
+}
 
 let tempUnit = "C";
 let city = "Oslo";
