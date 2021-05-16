@@ -106,7 +106,7 @@ function showForecast () {
   days.forEach(function (day) {
     forecastHTML =
       forecastHTML +`
-            <div class="col-2 wholeWeekDay">
+            <div class="col-sm wholeWeekDay">
               <div>${day},</div>
               <div>05.05.2021</div>
               <div>🌤</div>
