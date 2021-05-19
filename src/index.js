@@ -85,7 +85,7 @@ function showTemp (response){
 
 inputFormField.value =response.data.name;
 
-showForecast ();
+getForecast (response.data.coord);
 }
 
 function retrievePosition() {
@@ -98,7 +98,16 @@ function showWeatherForPosition(position) {
   let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
   axios.get(url).then(showTemp);
   }
-function showForecast () {
+
+function getForecast (coordinates) {
+  console.log (coordinates);
+  let apiKey = "2ac6514991aa99cb91e321c9b9758eb6"
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showForecast);
+}
+
+function showForecast (response) {
+  console.log (response.data.daily);
   let forecastElement = document.querySelector ("#forecast");
   
   let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
