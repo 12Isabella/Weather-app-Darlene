@@ -124,7 +124,7 @@ function showForecast (response) {
     if (index < 5){
     forecastHTML =
       forecastHTML +`
-            <div class="col-sm wholeWeekDay">
+            <div class="col-2 wholeWeekDay">
               <div class="weather-forecast-Date">${formatDay(forecastDay.dt)}</div>
               <img
           src="http://openweathermap.org/img/wn/${
