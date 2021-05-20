@@ -44,6 +44,7 @@ axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemp);
 
 
 function showTemp (response){
+  console.log (response);
     
     let inputFormField = document.querySelector ("#input-form-city"); 
     let inputPlaceElement = document.querySelector("#place");
@@ -72,7 +73,7 @@ function showTemp (response){
 
     iconElement.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
