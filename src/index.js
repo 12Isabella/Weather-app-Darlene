@@ -23,7 +23,7 @@ return days[day];
 
 function handleSubmit(event){
 event.preventDefault();
-console.log("running function");
+
 
 let inputPlace = document.querySelector ("#place");
 let inputFormField = document.querySelector ("#input-form-city");
@@ -44,8 +44,7 @@ axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemp);
 
 
 function showTemp (response){
-    console.log(response.data);
-
+    
     let inputFormField = document.querySelector ("#input-form-city"); 
     let inputPlaceElement = document.querySelector("#place");
     let tempNowElement = document.querySelector("#tempNow");
@@ -61,6 +60,8 @@ function showTemp (response){
     let iconElement = document.querySelector("#icon");
     
     //update the temperatures in all the elements
+    tempNowElement.innerHTML = `${temperature}`;
+    feelsLikeTemp.innerHTML = `Feels like: ${feelTemp} °C`;
     descriptionWeather.innerHTML = `${description}`;
     humidityElement.innerHTML = `${humidity}`;
     windspeedElement.innerHTML = `${windspeed}`;
@@ -92,7 +93,7 @@ function showWeatherForPosition(position) {
   }
 
 function getForecast (coordinates) {
-  console.log (coordinates);
+  
   let apiKey = "2ac6514991aa99cb91e321c9b9758eb6"
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showForecast);
