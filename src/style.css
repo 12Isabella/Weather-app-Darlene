@@ -5,6 +5,12 @@ h3,
 h4 {
   font-size: 10px;
 }
+#weatherProperties {
+  font-family: "Amatic SC", cursive;
+  font-weight: 700;
+  line-height: 3 em;
+}
+
 .weatherButton {
   background: #c42677;
   color: black;
