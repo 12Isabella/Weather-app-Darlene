@@ -42,16 +42,6 @@ apiUrl =`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`
 axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemp);
 }
 
-function updateUnitC () {
-  tempUnit = "C";
-  updateWeather ();
-}
-
-function updateUnitF() {
-  tempUnit = "F";
-  updateWeather();
-}
-
 
 function showTemp (response){
     console.log(response.data);
@@ -75,12 +65,6 @@ function showTemp (response){
     humidityElement.innerHTML = `${humidity}`;
     windspeedElement.innerHTML = `${windspeed}`;
 
-    //set temperatures in C or F based on tempUnit
-    if (tempUnit === "C"){    tempNowElement.innerHTML= `${temperature}`;
-    feelsLikeTemp.innerHTML = `Feels like: ${feelTemp} °C`;}
-    if (tempUnit === "F"){
-    tempNowElement.innerHTML= `${(Math.round(temperature*(9/5)+32))}`;
-    feelsLikeTemp.innerHTML = `Feels like: ${(Math.round(feelTemp*(9/5)+32))} °F`;}
     
     //Update the city that is shown
     inputPlaceElement.innerHTML = `${response.data.name}`;
@@ -149,7 +133,7 @@ function showForecast (response) {
 
 }
 
-let tempUnit = "C";
+
 let city = "Oslo";
 let apiUrl =`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`;
 let apiKey = "2ac6514991aa99cb91e321c9b9758eb6";
@@ -163,11 +147,6 @@ dayDate.innerHTML = `on ${actualDate()}`;
 let inputFormField = document.querySelector("#input-form");
 inputFormField.addEventListener ("submit", handleSubmit);
 
-let tempC = document.querySelector("#tempC");
-tempC.addEventListener ("click", updateUnitC);
-
-let tempF = document.querySelector("#tempF");
-tempF.addEventListener ("click", updateUnitF );
 
 let weatherButton = document.querySelector("#weatherNowButton");
 weatherButton.addEventListener("click", retrievePosition);
