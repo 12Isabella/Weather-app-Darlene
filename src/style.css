@@ -9,10 +9,15 @@ h4 {
 #weatherProperties {
   font-family: "Amatic SC", cursive;
   font-weight: 700;
-  line-height: 3 em;
+  line-height: 1em;
+  font-size: 22px;
 }
 #forecast {
   font-family: "Amatic SC", cursive;
+}
+#tempNow {
+  font-weight: 700;
+  font-size: 37px;
 }
 
 .weatherButton {
