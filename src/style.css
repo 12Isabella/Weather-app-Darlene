@@ -49,25 +49,11 @@ h4 {
     rgba(228, 204, 40, 0.47939262472885036) 100%
   );
 }
-.firstTemperatureEmoji {
-  text-align: center;
-  font-size: 50px;
-}
-.Today {
-  font-size: 17px;
-  text-align: center;
-}
-.wholeWeek {
-  padding-top: 20px;
-  padding-bottom: 30px;
-}
+
 .codeLink {
   text-decoration: none;
 }
-.wholeWeekDay {
-  font-size: 17px;
-  text-align: center;
-}
+
 .inputPlace {
   font-family: "Amatic SC", cursive;
 }
